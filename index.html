@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Techfest Logo Animation</title>
+  <title>Techfest Logo Lightning</title>
   <style>
     body {
       margin: 0;
@@ -15,46 +15,54 @@
     }
 
     .logo {
-      width: 300px; /* adjust as needed */
+      width: 320px; /* adjust size */
       height: auto;
-      filter: url(#glow);
       animation: lightning 1s infinite;
     }
 
     @keyframes lightning {
-      0%   { filter: url(#glow1); }
-      25%  { filter: url(#glow2); }
-      50%  { filter: url(#glow3); }
-      75%  { filter: url(#glow2); }
-      100% { filter: url(#glow1); }
+      0%   { filter: url(#glowBlue); }
+      25%  { filter: url(#glowCyan); }
+      50%  { filter: url(#glowPurple); }
+      75%  { filter: url(#glowCyan); }
+      100% { filter: url(#glowBlue); }
     }
   </style>
 </head>
 <body>
-  <!-- Logo -->
   <img src="r.png" alt="Techfest Logo" class="logo">
 
-  <!-- SVG Filters for sharper edge glow -->
   <svg width="0" height="0">
     <defs>
-      <filter id="glow1">
-        <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <!-- Blue Glow -->
+      <filter id="glowBlue">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+        <feFlood flood-color="#00f" result="color"/>
+        <feComposite in="color" in2="blur" operator="in"/>
         <feMerge>
-          <feMergeNode in="blur" />
+          <feMergeNode in="blur"/>
           <feMergeNode in="SourceGraphic"/>
         </feMerge>
       </filter>
-      <filter id="glow2">
+
+      <!-- Cyan Glow -->
+      <filter id="glowCyan">
         <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+        <feFlood flood-color="#0ff" result="color"/>
+        <feComposite in="color" in2="blur" operator="in"/>
         <feMerge>
-          <feMergeNode in="blur" />
+          <feMergeNode in="blur"/>
           <feMergeNode in="SourceGraphic"/>
         </feMerge>
       </filter>
-      <filter id="glow3">
-        <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur"/>
+
+      <!-- Purple Glow -->
+      <filter id="glowPurple">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur"/>
+        <feFlood flood-color="#a0f" result="color"/>
+        <feComposite in="color" in2="blur" operator="in"/>
         <feMerge>
-          <feMergeNode in="blur" />
+          <feMergeNode in="blur"/>
           <feMergeNode in="SourceGraphic"/>
         </feMerge>
       </filter>
