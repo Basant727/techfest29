@@ -15,70 +15,22 @@
     }
 
     .logo {
-      width: 350px; /* adjust size */
+      width: 350px;
       height: auto;
       animation: lightning 1.5s infinite;
     }
 
     @keyframes lightning {
-      0%   { filter: url(#glowBlue); }
-      20%  { filter: url(#glowCyan); }
-      40%  { filter: url(#glowPurple); }
-      60%  { filter: url(#glowWhite); }
-      80%  { filter: url(#glowCyan); }
-      100% { filter: url(#glowBlue); }
+      0%   { filter: drop-shadow(0 0 10px #00f); }
+      20%  { filter: drop-shadow(0 0 15px #0ff); }
+      40%  { filter: drop-shadow(0 0 20px #a0f); }
+      60%  { filter: drop-shadow(0 0 25px #fff); }
+      80%  { filter: drop-shadow(0 0 15px #0ff); }
+      100% { filter: drop-shadow(0 0 10px #00f); }
     }
   </style>
 </head>
 <body>
   <img src="adobe.png" alt="Techfest Logo" class="logo">
-
-  <svg width="0" height="0">
-    <defs>
-      <!-- Blue Glow -->
-      <filter id="glowBlue">
-        <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
-        <feFlood flood-color="#00f" result="color"/>
-        <feComposite in="color" in2="blur" operator="in"/>
-        <feMerge>
-          <feMergeNode in="blur"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-
-      <!-- Cyan Glow -->
-      <filter id="glowCyan">
-        <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
-        <feFlood flood-color="#0ff" result="color"/>
-        <feComposite in="color" in2="blur" operator="in"/>
-        <feMerge>
-          <feMergeNode in="blur"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-
-      <!-- Purple Glow -->
-      <filter id="glowPurple">
-        <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur"/>
-        <feFlood flood-color="#a0f" result="color"/>
-        <feComposite in="color" in2="blur" operator="in"/>
-        <feMerge>
-          <feMergeNode in="blur"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-
-      <!-- White Glow (flash effect) -->
-      <filter id="glowWhite">
-        <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur"/>
-        <feFlood flood-color="#fff" result="color"/>
-        <feComposite in="color" in2="blur" operator="in"/>
-        <feMerge>
-          <feMergeNode in="blur"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-    </defs>
-  </svg>
 </body>
 </html>
