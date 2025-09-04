@@ -15,22 +15,23 @@
     }
 
     .logo {
-      width: 320px; /* adjust size */
+      width: 350px; /* adjust size */
       height: auto;
-      animation: lightning 1s infinite;
+      animation: lightning 1.5s infinite;
     }
 
     @keyframes lightning {
       0%   { filter: url(#glowBlue); }
-      25%  { filter: url(#glowCyan); }
-      50%  { filter: url(#glowPurple); }
-      75%  { filter: url(#glowCyan); }
+      20%  { filter: url(#glowCyan); }
+      40%  { filter: url(#glowPurple); }
+      60%  { filter: url(#glowWhite); }
+      80%  { filter: url(#glowCyan); }
       100% { filter: url(#glowBlue); }
     }
   </style>
 </head>
 <body>
-  <img src="r.png" alt="Techfest Logo" class="logo">
+  <img src="adobe.png" alt="Techfest Logo" class="logo">
 
   <svg width="0" height="0">
     <defs>
@@ -60,6 +61,17 @@
       <filter id="glowPurple">
         <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur"/>
         <feFlood flood-color="#a0f" result="color"/>
+        <feComposite in="color" in2="blur" operator="in"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+
+      <!-- White Glow (flash effect) -->
+      <filter id="glowWhite">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur"/>
+        <feFlood flood-color="#fff" result="color"/>
         <feComposite in="color" in2="blur" operator="in"/>
         <feMerge>
           <feMergeNode in="blur"/>
