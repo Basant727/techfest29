@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Techfest Logo Animation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0e0e0e;
+    }
+
+    .logo {
+      width: 300px; /* adjust as needed */
+      height: auto;
+      animation: glow 3s infinite ease-in-out;
+      filter: drop-shadow(0 0 5px #00eaff) drop-shadow(0 0 15px #00eaff);
+    }
+
+    @keyframes glow {
+      0% {
+        filter: drop-shadow(0 0 5px #00eaff) drop-shadow(0 0 15px #00eaff);
+      }
+      50% {
+        filter: drop-shadow(0 0 20px #00f6ff) drop-shadow(0 0 40px #00f6ff);
+      }
+      100% {
+        filter: drop-shadow(0 0 5px #00eaff) drop-shadow(0 0 15px #00eaff);
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="r.png" alt="Techfest Logo" class="logo">
+</body>
+</html>
