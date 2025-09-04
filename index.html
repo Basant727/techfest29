@@ -17,24 +17,48 @@
     .logo {
       width: 300px; /* adjust as needed */
       height: auto;
-      animation: glow 3s infinite ease-in-out;
-      filter: drop-shadow(0 0 5px #00eaff) drop-shadow(0 0 15px #00eaff);
+      filter: url(#glow);
+      animation: lightning 1s infinite;
     }
 
-    @keyframes glow {
-      0% {
-        filter: drop-shadow(0 0 5px #00eaff) drop-shadow(0 0 15px #00eaff);
-      }
-      50% {
-        filter: drop-shadow(0 0 20px #00f6ff) drop-shadow(0 0 40px #00f6ff);
-      }
-      100% {
-        filter: drop-shadow(0 0 5px #00eaff) drop-shadow(0 0 15px #00eaff);
-      }
+    @keyframes lightning {
+      0%   { filter: url(#glow1); }
+      25%  { filter: url(#glow2); }
+      50%  { filter: url(#glow3); }
+      75%  { filter: url(#glow2); }
+      100% { filter: url(#glow1); }
     }
   </style>
 </head>
 <body>
+  <!-- Logo -->
   <img src="r.png" alt="Techfest Logo" class="logo">
+
+  <!-- SVG Filters for sharper edge glow -->
+  <svg width="0" height="0">
+    <defs>
+      <filter id="glow1">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+      <filter id="glow2">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+      <filter id="glow3">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+  </svg>
 </body>
 </html>
