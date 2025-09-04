@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Techfest Logo Edge Glow</title>
+  <title>Techfest Logo Lightning</title>
   <style>
     body {
       margin: 0;
@@ -14,47 +14,23 @@
       background: #0e0e0e;
     }
 
-    svg {
-      width: 400px; /* adjust size */
+    .logo {
+      width: 350px;
       height: auto;
+      animation: lightning 1.5s infinite;
     }
 
-    .glow-path {
-      stroke: #0ff;
-      stroke-width: 4;
-      fill: none;
-      filter: url(#glow);
-      stroke-dasharray: 1000;
-      stroke-dashoffset: 1000;
-      animation: glowMove 3s linear infinite;
-    }
-
-    @keyframes glowMove {
-      0%   { stroke-dashoffset: 1000; }
-      100% { stroke-dashoffset: 0; }
+    @keyframes lightning {
+      0%   { filter: drop-shadow(0 0 10px #00f); }
+      20%  { filter: drop-shadow(0 0 15px #0ff); }
+      40%  { filter: drop-shadow(0 0 20px #a0f); }
+      60%  { filter: drop-shadow(0 0 25px #fff); }
+      80%  { filter: drop-shadow(0 0 15px #0ff); }
+      100% { filter: drop-shadow(0 0 10px #00f); }
     }
   </style>
 </head>
 <body>
-
-  <!-- Embed transparent logo -->
-  <svg viewBox="0 0 400 400">
-    <defs>
-      <!-- Glow filter -->
-      <filter id="glow">
-        <feGaussianBlur stdDeviation="4" result="blur"/>
-        <feMerge>
-          <feMergeNode in="blur"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-    </defs>
-
-    <!-- Use the paths from your background-removed SVG -->
-    <!-- Example path: replace with actual paths from adobe21.svg -->
-    <path class="glow-path" d="M50,50 L350,50 L350,350 L50,350 Z"/>
-    <image href="adobe21.svg" width="400" height="400"/>
-  </svg>
-
+  <img src="adobe.png" alt="Techfest Logo" class="logo">
 </body>
 </html>
